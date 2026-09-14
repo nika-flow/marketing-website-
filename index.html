@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+  <meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary Meta -->
-<meta name="description" content="Veronika Trush — freelance marketing consultant helping sustainable and D2C brands grow through strategy, performance marketing, and AI-powered campaigns.">
+<meta name="description" content="Veronika Trush — Digital Marketing Consultant helping brands turn digital experiences into sales — from high-converting online shops and landing pages to marketing strategies and social media campaigns.">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph / Social Preview -->
 <meta property="og:type"        content="website">
-<meta property="og:title"       content="Veronika Trush — Marketing Consultant">
-<meta property="og:description" content="Helping sustainable and D2C brands grow through strategy, performance marketing, and AI-powered campaigns.">
+<meta property="og:title"       content="Veronika Trush - Digital Marketing Consultant">
+<meta property="og:description" content="Helping brands turn digital experiences into sales — from high-converting online shops and landing pages to marketing strategies and social media campaigns.">
 <meta property="og:url"         content="https://veronika-trush-marketing.com/">
 <meta property="og:image"       content="https://veronika-trush-marketing.com/og-image.jpg">
 <meta property="og:image:width"  content="1200">
@@ -20,8 +21,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Veronika Trush — Marketing Consultant">
-<meta name="twitter:description" content="Helping sustainable and D2C brands grow through strategy, performance marketing, and AI-powered campaigns.">
+<meta name="twitter:title"       content="Veronika Trush - Digital Marketing Consultant">
+<meta name="twitter:description" content="Helping brands turn digital experiences into sales — from high-converting online shops and landing pages to marketing strategies and social media campaigns.">
 <meta name="twitter:image"       content="https://veronika-trush-marketing.com/og-image.jpg">
 
 <!-- Favicon -->
@@ -84,41 +85,9 @@
     --btn-hover:   #2A6048;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg:          #131311;
-      --bg-card:     #1D1D1A;
-      --bg-header:   rgba(19,19,17,0.92);
-      --text:        #EDECEA;
-      --text-muted:  #888880;
-      --text-light:  #5C5C56;
-      --accent:      #4D9E7A;
-      --accent-soft: #557B6A;
-      --border:      #272724;
-      --tag-bg:      #1E2E28;
-      --tag-text:    #6EC49A;
-      --btn-bg:      #EDECEA;
-      --btn-text:    #131311;
-      --btn-hover:   #4D9E7A;
-    }
-  }
+  
 
-  :root[data-theme="dark"] {
-    --bg:          #131311;
-    --bg-card:     #1D1D1A;
-    --bg-header:   rgba(19,19,17,0.92);
-    --text:        #EDECEA;
-    --text-muted:  #888880;
-    --text-light:  #5C5C56;
-    --accent:      #4D9E7A;
-    --accent-soft: #557B6A;
-    --border:      #272724;
-    --tag-bg:      #1E2E28;
-    --tag-text:    #6EC49A;
-    --btn-bg:      #EDECEA;
-    --btn-text:    #131311;
-    --btn-hover:   #4D9E7A;
-  }
+  
 
   /* ── Reset & Base ───────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; }
@@ -306,10 +275,8 @@
     .bio-highlight-pink { animation: none; background-size: 103% 85%; }
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .hero-bio { color: #AEADA8; }
-  }
-  :root[data-theme="dark"] .hero-bio { color: #AEADA8; }
+  
+  
 
   /* ── Divider ────────────────────────────────────────────── */
   .divider {
@@ -374,9 +341,9 @@
   }
 
   .spec-tab.active {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--bg);
+    background: #2A6048;
+    border-color: #2A6048;
+    color: #F8F7F4;
   }
 
   .spec-divider {
@@ -560,10 +527,8 @@
     line-height: 1.45;
   }
 
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .hero-stat-label { color: #AEADA8; }
-  }
-  :root[data-theme="dark"] .hero-stat-label { color: #AEADA8; }
+  
+  
 
   /* ── Exp badge ──────────────────────────────────────────── */
   .exp-badge {
@@ -777,7 +742,7 @@
     flex: 1;
     min-width: 200px;
     padding: 14px 18px;
-    border: 1.5px solid var(--border);
+    border: 1.5px solid var(--text);
     border-radius: 10px;
     font-size: 15px;
     font-family: inherit;
@@ -932,6 +897,8 @@
   @media (max-width: 600px) {
     body { padding-inline: 16px; }
 
+    .site-header { position: static; }
+
     .header-name { font-size: 16px; }
 
     .header-role {
@@ -1017,13 +984,14 @@
   }
   .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 16px;
   }
   .contact-field {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    min-width: 0;
   }
   .contact-field.full { grid-column: 1 / -1; }
   .contact-label {
@@ -1080,6 +1048,7 @@
     color: var(--text);
     cursor: pointer;
     font-family: inherit;
+    white-space: nowrap;
     transition: border-color 0.15s, background 0.15s;
   }
   .contact-pill:hover { border-color: var(--text-muted); }
@@ -1087,22 +1056,30 @@
     border-color: #9aac8a;
     background: rgba(154,172,138,0.12);
   }
+  .contact-bottom-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .contact-pills-section { flex: 1; }
+  .contact-submit-section { flex-shrink: 0; }
   .contact-submit {
-    margin-top: 24px;
-    background: none;
-    border: 1.5px solid var(--border);
+    background: #2A6048;
+    border: none;
     border-radius: 100px;
-    padding: 13px 32px;
+    padding: 14px 36px;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: inherit;
-    color: var(--text);
+    color: #F8F7F4;
     cursor: pointer;
-    transition: background 0.18s, color 0.18s;
+    transition: background 0.18s;
+    white-space: nowrap;
   }
   .contact-submit:hover {
-    background: var(--text);
-    color: var(--bg);
+    background: #1f4a36;
+    color: #F8F7F4;
   }
   .contact-success {
     display: none;
@@ -1112,8 +1089,25 @@
   .contact-success h3 { font-size: 22px; font-weight: 400; margin-bottom: 10px; }
   .contact-success p { color: var(--text-muted); font-size: 15px; }
   @media (max-width: 600px) {
-    .contact-modal { padding: 28px 20px 24px; }
+    .contact-overlay { padding: 0; align-items: flex-end; }
+    .contact-modal {
+      padding: 28px 20px 32px;
+      border-radius: 20px 20px 0 0;
+      max-height: 92vh;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     .contact-grid { grid-template-columns: 1fr; }
+    .contact-input, .contact-textarea { width: 100%; box-sizing: border-box; }
+    .contact-bottom-row {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+    .contact-pills { flex-wrap: wrap; }
+    .contact-submit-section { width: 100%; }
+    .contact-submit { width: 100%; text-align: center; }
   }
 
   /* ── Data Modal ──────────────────────────────────────────── */
@@ -1473,7 +1467,7 @@
       var interests = [];
       document.querySelectorAll('.contact-pill.selected').forEach(function(p) { interests.push(p.getAttribute('data-value')); });
 
-      var btn = document.querySelector('#contactFormWrap [type="submit"], #contactFormWrap button');
+      var btn = document.querySelector('#contactFormWrap button[type="submit"]');
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
 
       var payload = {
@@ -1623,7 +1617,7 @@
           <div class="consult-title">90-min Marketing Audit</div>
         </div>
         <div class="consult-body">
-          <p class="consult-desc">I'll review your marketing, e-commerce experience and customer journey and <strong style="text-decoration:underline;text-decoration-color:#B85C38;text-decoration-thickness:2px;text-underline-offset:3px;">give you a practical action plan</strong> with the first improvements you can make straight away.</p>
+          <p class="consult-desc">I'll review your digital presence, marketing, e-commerce experience and customer journey and <strong style="text-decoration:underline;text-decoration-color:#B85C38;text-decoration-thickness:2px;text-underline-offset:3px;">give you a practical action plan</strong> with the first improvements you can make straight away.</p>
           <a class="consult-btn" href="#" onclick="openContact('Get your Brand Audit'); return false;">Get your audit</a>
         </div>
       </div>
@@ -1766,16 +1760,18 @@
           <label class="contact-label" for="cf-message">YOUR REQUEST</label>
           <textarea class="contact-textarea" id="cf-message" placeholder="Tell me about your project, goals, or what you'd like help with…"></textarea>
         </div>
-        <div class="full">
-          <p class="contact-interest-label">I'M INTERESTED IN</p>
-          <div class="contact-pills" id="contactPills">
-            <button type="button" class="contact-pill" data-value="Free 30 min Call" onclick="togglePill(this)">Free 30 min Call</button>
-            <button type="button" class="contact-pill" data-value="Get your Brand Audit" onclick="togglePill(this)">Get your Brand Audit</button>
-            <button type="button" class="contact-pill" data-value="Get a quote for Growth Sprint" onclick="togglePill(this)">Get a quote for Growth Sprint</button>
+        <div class="full contact-bottom-row">
+          <div class="contact-pills-section">
+            <p class="contact-interest-label">I'M INTERESTED IN</p>
+            <div class="contact-pills" id="contactPills">
+              <button type="button" class="contact-pill" data-value="Free 30 min Call" onclick="togglePill(this)">Free 30 min Call</button>
+              <button type="button" class="contact-pill" data-value="Get your Brand Audit" onclick="togglePill(this)">Get your Brand Audit</button>
+              <button type="button" class="contact-pill" data-value="Get a quote for Growth Sprint" onclick="togglePill(this)">Get a quote for Growth Sprint</button>
+            </div>
           </div>
-        </div>
-        <div class="full">
-          <button type="submit" class="contact-submit">Send message</button>
+          <div class="contact-submit-section">
+            <button type="submit" class="contact-submit">Send message</button>
+          </div>
         </div>
       </form>
     </div>
@@ -1832,7 +1828,9 @@
 
     <h2>1. Verantwortliche</h2>
     <p>Veronika Trush<br>
-    München, Deutschland<br>
+    c/o Impressumservice Dein-Impressum<br>
+    Stettiner Str. 41<br>
+    35410 Hungen<br>
     E-Mail: <a href="mailto:marketingflow.ai@gmail.com">marketingflow.ai@gmail.com</a></p>
 
     <h2>2. Datenerfassung auf dieser Website</h2>
@@ -1875,8 +1873,8 @@
       transform: translateX(-50%);
       width: calc(100% - 48px);
       max-width: 600px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
+      background: #FFF0DC;
+      border: 1px solid rgba(255,138,30,0.25);
       border-radius: 16px;
       padding: 24px 28px;
       box-shadow: 0 8px 32px rgba(28,28,26,0.12);
