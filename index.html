@@ -54,15 +54,6 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init','2058033651746881');
     fbq('track','PageView');
-    // attachPixelEvents may not be defined yet if pixel loads from <head> on page load
-    // (returning visitors with consent already accepted). Wait for DOM if needed.
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        if (typeof attachPixelEvents === 'function') attachPixelEvents();
-      });
-    } else {
-      if (typeof attachPixelEvents === 'function') attachPixelEvents();
-    }
   }
   (function() {
     var consent = localStorage.getItem('vt_cookie_consent');
@@ -1945,44 +1936,6 @@
     <button id="cookieDecline">Ablehnen</button>
   </div>
 </div>
-<!-- ── Meta Pixel Custom Events ─────────────────────────────── -->
-<script>
-  function attachPixelEvents() {
-    if (typeof fbq !== 'function') return;
-
-    // EVENT 1: StartContactForm
-    // Fires when any "Book a call / consultation / audit / quote" button is clicked.
-    // All four buttons call openContact(), so we wrap that function once.
-    if (typeof openContact === 'function' && !openContact._pixelWrapped) {
-      var _origOpenContact = openContact;
-      openContact = function(interest) {
-        fbq('trackCustom', 'StartContactForm', { content_name: interest });
-        _origOpenContact.apply(this, arguments);
-      };
-      openContact._pixelWrapped = true;
-    }
-
-    // EVENT 2: Lead
-    // Fires when the "Send message" submit button in the contact form is clicked.
-    var contactSubmit = document.querySelector('.contact-submit');
-    if (contactSubmit && !contactSubmit._pixelTracked) {
-      contactSubmit.addEventListener('click', function() {
-        fbq('track', 'Lead');
-      });
-      contactSubmit._pixelTracked = true;
-    }
-
-    // EVENT 3: Subscribe
-    // Fires when the "Sign Up" button on the course sign-up form is submitted.
-    var courseForm = document.querySelector('.course-form');
-    if (courseForm && !courseForm._pixelTracked) {
-      courseForm.addEventListener('submit', function() {
-        fbq('track', 'Subscribe');
-      });
-      courseForm._pixelTracked = true;
-    }
-  }
-</script>
 <!-- ── Cookie Consent ─────────────────────────────────────── -->
 <script>
   (function() {
